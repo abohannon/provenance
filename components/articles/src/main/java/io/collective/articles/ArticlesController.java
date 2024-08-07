@@ -36,7 +36,6 @@ public class ArticlesController extends BasicHandler {
           var articleInfos = articles.stream().map(articleRecord -> new ArticleInfo(articleRecord.getId(), articleRecord.getTitle())).toList();
 
           writeJsonBody(servletResponse, articleInfos);
-
         });
     }
 }
