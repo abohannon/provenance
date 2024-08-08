@@ -35,7 +35,7 @@ public class EndpointWorker implements Worker<EndpointTask> {
         String response = template.get(task.getEndpoint(), task.getAccept());
         gateway.clear();
 
-        // todo - map rss results to an article infos collection and save articles infos to the article gateway
+        // todo:done - map rss results to an article infos collection and save articles infos to the article gateway
 
         RSS rss = new XmlMapper().readValue(response, RSS.class);
 

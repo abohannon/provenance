@@ -20,7 +20,7 @@ public class ArticlesController extends BasicHandler {
     public void handle(String target, Request request, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
         get("/articles", List.of("application/json", "text/html"), request, servletResponse, () -> {
 
-        // todo - query the articles gateway for *all* articles, map record to infos, and send back a collection of article infos
+        // todo:done - query the articles gateway for *all* articles, map record to infos, and send back a collection of article infos
 
           var articles = gateway.findAll();
           var articleInfos = articles.stream().map(articleRecord -> new ArticleInfo(articleRecord.getId(), articleRecord.getTitle())).toList();
@@ -30,7 +30,7 @@ public class ArticlesController extends BasicHandler {
 
         get("/available", List.of("application/json"), request, servletResponse, () -> {
 
-          // todo - query the articles gateway for *available* articles, map records to infos, and send back a collection of article infos
+          // todo:done - query the articles gateway for *available* articles, map records to infos, and send back a collection of article infos
 
           var articles = gateway.findAvailable();
           var articleInfos = articles.stream().map(articleRecord -> new ArticleInfo(articleRecord.getId(), articleRecord.getTitle())).toList();
